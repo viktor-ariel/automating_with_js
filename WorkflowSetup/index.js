@@ -1,17 +1,14 @@
-const open = require('open');
-
-
-
-
-//open('https://sindresorhus.com', {app: {name: 'firefox'}});
+const open = (...args) => import('open').then(({default: open}) => open(...args));
+open("/usr/bin/gnome-calculator") //.exe
+open("/home/viktor/Downloads/")
+open("/usr/lib/firefox/firefox")
 const urls = [
     "https://www.reddit.com/",
     "https://www.nytimes.com/",
+    "https://www.youtube.com",
+    "https://www.facebook.com",
 ];
-
-for (const url of urls){
-    open (url, { app: {name: "google chrome"} });
+for (const url of urls) {
+    open(url, { app: { name: "firefox" } });
+    console.log(`${url} deu certo`)
 }
-
-open("/home/viktor/Downloads/")
-open("/usr/bin/gnome-calculator")
