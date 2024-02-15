@@ -15,7 +15,7 @@ async function fetchLiteracyRates(){
     table.find("tbody tr").slice(2).each((i, element)=>{
         const $row = $(element);
 
-        const countryName = $row.find("a").first().text();
+        const countryName = $row.find("a").first().text().replace("*", '');
         const literacyRate = $row.find("td").slice(1, 2).text();
 
         fileString += `${countryName}, ${literacyRate}`;
